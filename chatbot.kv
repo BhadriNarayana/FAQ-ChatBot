@@ -1,0 +1,16 @@
+<MyScreen>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDScrollView:
+            size_hint:1, 0.8
+            MDBoxLayout:
+                id:container
+                size_hint_y:None
+                height:self.minimum_height
+        MDBoxLayout:
+            size_hint:1, 0.2
+            padding:10
+            MDTextField:
+                text: "Enter your query here"
+            MDIconButton:
+                icon: "account-arrow-right"            

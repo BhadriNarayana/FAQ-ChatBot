@@ -3,7 +3,6 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import Screen
 
 from kivymd.uix.textfield import MDTextField
-from kivy.uix.textinput import TextInput
 
 import joblib
 import numpy as np
@@ -22,7 +21,7 @@ class MyScreen(Screen):
     def ask(self):
         container = self.ids.container
         q_content = self.ids.qry.text 
-        q_w = MDTextField(text = q_content, size_hint_y = None, multiline = True, icon_left = "frequently-asked-questions", readonly = True,line_color_focus = (0, 0, 0, 0), line_color_normal=[0, 0, 0, 0])
+        q_w = MDTextField(text = q_content, size_hint_y = None, multiline = True, icon_left = "frequently-asked-questions", readonly = True, line_color_normal=[0, 0, 0, 1])
 
         container.add_widget(q_w)
         self.ids.qry.text = ""
@@ -33,8 +32,8 @@ class MyScreen(Screen):
         maxarg = np.argmax(similarities, axis = 1)
 
         a_content = data['Answers'].iloc[maxarg].values[0]
-        a_w = MDTextField(text = a_content, size_hint_y = None, multiline = True, icon_left = "chat-answer", line_color_normal=[0, 0, 0, 0])
-        #a_w = TextInput(text = a_content, size_hint_y = None, multiline = True)
+        a_w = MDTextField(text = a_content, size_hint_y = None, multiline = True, icon_left = "chat-answer", line_color_normal=[0, 0, 0, 1])
+        a_w.is_focusable = False
 
         container.add_widget(a_w)
 
